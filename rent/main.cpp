@@ -30,18 +30,18 @@ int main(int argc, const char * argv[]) {
     mydb.newUser("yan4", mydb.userUnikey(), "6789");
     cout << "users: " << mydb.getUserCount()<< endl;
     
-    mydb.newRent(0, 1, 5); //prodid, useid, sval
-    mydb.newRent(0, 2, 3);
-    mydb.newRent(1, 1, 2);
-    mydb.newRent(2, 0, 1);
-    
+   // mydb.newRent(0, 1, 5); //prodid, useid, sval
+    //mydb.newRent(0, 2, 3);
+    //mydb.newRent(1, 1, 2);
+    //mydb.newRent(2, 0, 1);
+    unsigned long sval[2] = {0};
     cout << "products: " << mydb.getProdCount()<< endl;
     cout << "rents: " << mydb.getRentsCount()<< endl;
-
+    
     mysched.init();
-    mysched.setTime(1, 1);
-    mysched.setTime(4,3);
-    mysched.setTime(6, 11);
+    mysched.setTime(1, 1, sval);
+    mysched.setTime(4,3, sval);
+    mysched.setTime(6, 11, sval);
     
     mysched.printSched();
     return 0;

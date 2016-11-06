@@ -12,9 +12,9 @@
 class sched{
 public:
     void init();
-    bool isone(int _index);
-    bool setTime(int _day, int _hour);
+    bool setTime(int _day, int _hour, unsigned long _sval[]);
     void printSched();
+    
     unsigned long printSval();
 private:
     unsigned long m_schedBitArr[2];
@@ -27,7 +27,7 @@ void sched::init()
 }
 
 
-bool sched::setTime(int _day, int _hour)//day 1-7, hour 1-12
+bool sched::setTime(int _day, int _hour, unsigned long _sval[])//day 1-7, hour 1-12
 {
     int index = 0;
     _day -= 1;  //for UI purposes only
@@ -45,6 +45,9 @@ bool sched::setTime(int _day, int _hour)//day 1-7, hour 1-12
             m_schedBitArr[0] |= 1UL << index;
         }
         
+        _sval[0] =m_schedBitArr[0];
+        
+        _sval[1] =m_schedBitArr[1];
         return true; //set succeeded
     }
     
@@ -118,21 +121,6 @@ void sched::printSched()
         
     }
 }
-bool sched::isone(int _index)
-{
-  /*  if(_index > 127)
-    {
-        if(_index > 63)
-        {
-            
-        }
-        
-        else{
-            if()
-        }
-    }
-*/
-    return true;
-}
+
 
 #endif /* sched_h */

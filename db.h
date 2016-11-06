@@ -50,23 +50,24 @@ bool user::updateProd(int _prodid)
 class renter
 {
 public:
-     renter(int _userid, int _sval);
+     renter(int _userid, unsigned long _sval[]);
 private:
     int m_userId;
-    int m_userSchedVal;
+    unsigned long m_userSchedVal[];
 };
 
-renter::renter(int _userid, int _sval)
+renter::renter(int _userid, unsigned long _sval[])
 {
     m_userId = _userid;
-    m_userSchedVal = _sval;
+    m_userSchedVal[0] = _sval[0];
+    m_userSchedVal[1] = _sval[1];
 }
 
 class product
 {
 public:
     product(string _name, int _prodid, int _rate, int _maxRent);
-    void newRenter(int _userid, int _sval);
+    void newRenter(int _userid, unsigned long _sval[]);
 
     int m_currRenters;
     int getProdCount();
@@ -95,7 +96,7 @@ product::product(string _name, int _prodid, int _rate, int _maxRent)
     init();
 }
 
-void product::newRenter(int _userid, int _sval)
+void product::newRenter(int _userid, unsigned long _sval[])
 {
      if(m_currRenters < MAX_RENTERS)
     {
@@ -120,7 +121,7 @@ public:
     void newProd(string _name, int _prodid, int _rate, int _maxRent);
     
     void newUser(string _name, int _userid, string _pass);
-    void newRent(int _prodid, int _userid, int _sval);
+    void newRent(int _prodid, int _userid, unsigned long _sval[]);
 
     int getProdCount();
     void init();
@@ -175,7 +176,7 @@ void db::newUser(string _name, int _userid, string _pass)
 }
 
 
-void db::newRent(int _prodid, int _userid, int _sval)
+void db::newRent(int _prodid, int _userid, unsigned long _sval[])
 
 {
     if(_prodid <= getProdCount())
