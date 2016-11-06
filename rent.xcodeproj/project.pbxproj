@@ -23,8 +23,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		C72CF5B51DCE6F9C000907CD /* sched.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = sched.h; sourceTree = "<group>"; };
 		C7D5D7E11DCBCF3000B2D6BD /* rent */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = rent; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7D5D7E41DCBCF3000B2D6BD /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		C7D5D7EC1DCBCF3B00B2D6BD /* db.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = db.h; path = ../db.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +59,8 @@
 		C7D5D7E31DCBCF3000B2D6BD /* rent */ = {
 			isa = PBXGroup;
 			children = (
+				C7D5D7EC1DCBCF3B00B2D6BD /* db.h */,
+				C72CF5B51DCE6F9C000907CD /* sched.h */,
 				C7D5D7E41DCBCF3000B2D6BD /* main.cpp */,
 			);
 			path = rent;
@@ -246,6 +250,7 @@
 				C7D5D7EA1DCBCF3000B2D6BD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
