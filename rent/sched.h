@@ -9,24 +9,6 @@
 #ifndef sched_h
 #define sched_h
 
-/*class sched{
-public:
-    void init();
-    bool setTime(int _day, int _hour, unsigned long _sval[]);
-    void printSched();
-    
-    unsigned long printSval();
-private:
-    unsigned long m_schedBitArr[2];
-};
-
-
-void sched::init()
-{
-    memset(&m_schedBitArr, 0, sizeof(m_schedBitArr));
-}
-*/
-//static unsigned long m_schedBitArr[2];
 bool setTime(int _day, int _hour, unsigned long _sval[])//day 1-7, hour 1-12
 {
     int index = 0;
@@ -53,7 +35,7 @@ bool setTime(int _day, int _hour, unsigned long _sval[])//day 1-7, hour 1-12
     
     else
     {
-        return false; //day and hour more than 84 (7 * 12)
+        return false; //day and hour are more than 84 (7 * 12)
     }
 }
 
