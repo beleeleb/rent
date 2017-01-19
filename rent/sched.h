@@ -9,7 +9,7 @@
 #ifndef sched_h
 #define sched_h
 
-class sched{
+/*class sched{
 public:
     void init();
     bool setTime(int _day, int _hour, unsigned long _sval[]);
@@ -25,9 +25,9 @@ void sched::init()
 {
     memset(&m_schedBitArr, 0, sizeof(m_schedBitArr));
 }
-
-
-bool sched::setTime(int _day, int _hour, unsigned long _sval[])//day 1-7, hour 1-12
+*/
+//static unsigned long m_schedBitArr[2];
+bool setTime(int _day, int _hour, unsigned long _sval[])//day 1-7, hour 1-12
 {
     int index = 0;
     _day -= 1;  //for UI purposes only
@@ -37,17 +37,17 @@ bool sched::setTime(int _day, int _hour, unsigned long _sval[])//day 1-7, hour 1
     {
         if(index >= 64)
         {
-            m_schedBitArr[1] |= 1UL << (index - 64);    //UL stands for (unsigned long) because 1 is int by default
+            _sval[1] |= 1UL << (index - 64);    //UL stands for (unsigned long) because 1 is int by default
         }
         
         else
         {
-            m_schedBitArr[0] |= 1UL << index;
+            _sval[0] |= 1UL << index;
         }
         
-        _sval[0] =m_schedBitArr[0];
+        //_sval[0] =m_schedBitArr[0];
         
-        _sval[1] =m_schedBitArr[1];
+       // _sval[1] =m_schedBitArr[1];
         return true; //set succeeded
     }
     
@@ -57,7 +57,7 @@ bool sched::setTime(int _day, int _hour, unsigned long _sval[])//day 1-7, hour 1
     }
 }
 
-void sched::printSched()
+void printSched(unsigned long _sval[])
 {
     int i_day = 0;
     int j_hour = 0;
@@ -88,7 +88,7 @@ void sched::printSched()
             
             if(index >= 64)
             {
-                if(m_schedBitArr[1] & 1UL << (index - 64))
+                if(_sval[1] & 1UL << (index - 64))
                 {
                     cout << "|*|" ;
                 }
@@ -100,7 +100,7 @@ void sched::printSched()
             
             else
             {
-                if(m_schedBitArr[0] & (1UL << index))
+                if(_sval[0] & (1UL << index))
                 {
                     cout << "|*|" ;
                 }
